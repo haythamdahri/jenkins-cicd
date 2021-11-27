@@ -7,19 +7,15 @@ pipeline {
                 echo 'Init Jenkinsfile ...'
             }
         }
-        stage('Echo') {
+        stage('Me') {
             steps {
-                echo 'Running ECHO ...'
-            }
-        }
-        stage('Test') {
-            steps {
-                echo 'Testing ...'
+                sh 'whoami'
             }
         }
         stage('Ansible Service Check') {
             steps {
                 sh 'ansible-playbook /home/haytham/Ansible/AzureMailAdmin.yaml -i /home/haytham/Ansible/inventory_hosts'
+                sh 'ansible-playbook /home/haytham/Ansible/AzureVMPlaybooks.yml -i /home/haytham/Ansible/inventory_hosts'
             }
         }
     }
