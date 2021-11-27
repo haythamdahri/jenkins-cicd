@@ -17,5 +17,10 @@ pipeline {
                 echo 'Testing ...'
             }
         }
+        stage('Ansible Service Check') {
+            steps {
+                sh 'ansible-playbook /home/haytham/Ansible/AzureMailAdmin.yaml -i /home/haytham/Ansible/inventory_hosts'
+            }
+        }
     }
 }
